@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Union
 
 from pydantic import BaseModel, Field, AnyUrl
 
@@ -337,10 +337,10 @@ class GlobalStatus(BaseModel):
     Select_range: Optional[int]
     Select_range_check: Optional[int]
     Select_scan: Optional[int]
-    Slave_heartbeat_period: Optional[float]
+    Slave_heartbeat_period: Optional[Union[str, float]]
     Slave_open_temp_tables: Optional[int]
-    Slave_received_heartbeats: Optional[int]
-    Slave_retried_transactions: Optional[int]
+    Slave_received_heartbeats: Optional[Union[str, int]]
+    Slave_retried_transactions: Optional[Union[str, int]]
     Slave_running: Optional[str]
     Slow_launch_threads: Optional[int]
     Slow_queries: Optional[int]

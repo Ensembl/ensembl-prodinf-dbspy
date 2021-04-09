@@ -4,7 +4,7 @@ from fastapi import Path, Query
 
 
 def HostPath(**kwargs) -> Any:
-    return Path(..., regex=r"^[a-z0-9\-]+$", **kwargs)
+    return Path(..., regex=r"^[a-z0-9\-\.]+$", **kwargs)
 
 
 def DBNamePath(**kwargs) -> Any:
