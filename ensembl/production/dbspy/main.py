@@ -4,7 +4,7 @@ from fastapi import FastAPI, Request, HTTPException
 from fastapi.openapi.utils import get_openapi
 
 from ensembl.production.dbspy import config
-from ensembl.production.dbspy.logging import logger
+from ensembl.production.dbspy.loggers import logger
 from ensembl.production.dbspy.schemas import Info, ServerStatus, TablesStatus
 from ensembl.production.dbspy.schemas import HTTPError, Message
 from ensembl.production.dbspy.params import HostPath, PortPath, DBNamePath
@@ -14,6 +14,14 @@ from ensembl.production.dbspy.utils import url_for
 
 
 app = FastAPI(**config.OPENAPI)
+
+
+logger.info(
+    "Configuration: VERSION=%s, HOSTS_FILE=%s, LOG_LEVEL=%s",
+    config.VERSION,
+    config.HOSTS_FILE,
+    config.LOG_LEVEL,
+)
 
 
 responses: Optional[dict] = {
@@ -33,6 +41,7 @@ def get_host(hostname: str, port: int) -> dict:
 
 @app.get("/", response_model=Info, tags=["server_info"])
 def info():
+    logger.debug("DIOCANE")
     return Info(name=config.OPENAPI["title"], server_version=config.VERSION)
 
 

@@ -1,10 +1,11 @@
 import csv
 import os
 
-from ensembl.production.dbspy.logging import logger
-
 
 VERSION = "1.0.0"
+
+
+LOG_LEVEL = os.getenv("LOG_LEVEL", "info").lower()
 
 
 OPENAPI = {
@@ -18,7 +19,7 @@ OPENAPI = {
 }
 
 
-HOSTS_FILE = os.environ.get("HOSTS_FILE", "hosts.csv")
+HOSTS_FILE = os.getenv("HOSTS_FILE", "hosts.csv")
 
 
 def load_hosts(reader: csv.DictReader) -> dict:
@@ -41,6 +42,3 @@ def get_hosts() -> dict:
 
 
 HOSTS = get_hosts()
-
-
-logger.info("Configuration: VERSION=%s, HOSTS_FILE=%s", VERSION, HOSTS_FILE)
