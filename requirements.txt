@@ -10,6 +10,8 @@ fastapi==0.63.0
     # via -r requirements.in
 greenlet==1.0.0
     # via sqlalchemy
+gunicorn==20.1.0
+    # via -r requirements.in
 h11==0.12.0
     # via uvicorn
 httptools==0.1.1
@@ -36,3 +38,6 @@ watchgod==0.7
     # via uvicorn
 websockets==8.1
     # via uvicorn
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools

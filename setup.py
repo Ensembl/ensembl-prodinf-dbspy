@@ -22,6 +22,7 @@ setup(
     install_requires=[
         'fastapi',
         'uvicorn[standard]',
+        'gunicorn',
         'sqlalchemy',
         'mysqlclient'
     ],
