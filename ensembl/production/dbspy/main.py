@@ -41,7 +41,6 @@ def get_host(hostname: str, port: int) -> dict:
 
 @app.get("/", response_model=Info, tags=["server_info"])
 def info():
-    logger.debug("DIOCANE")
     return Info(name=config.OPENAPI["title"], server_version=config.VERSION)
 
 
