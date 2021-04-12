@@ -1,3 +1,7 @@
+"""
+Utility functions for the main module.
+"""
+
 from urllib.parse import urlsplit, urlunsplit, urlencode
 
 from fastapi import Request
@@ -6,6 +10,7 @@ from fastapi import Request
 def url_for(
     request: Request, view: str, path_params: dict = None, query_params: dict = None
 ) -> str:
+    """Builds the url for a view, including query params"""
     if path_params is None:
         path_params = {}
     url = request.url_for(view, **path_params)

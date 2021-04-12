@@ -1,3 +1,7 @@
+"""
+Main module. Contains app loaded by Uvicorn worker.
+"""
+
 from typing import Optional
 
 from fastapi import FastAPI, Request, HTTPException
@@ -30,6 +34,9 @@ responses: Optional[dict] = {
 
 
 def get_host(hostname: str, port: int) -> dict:
+    """Utility function to retrieve host details from config.
+    Raise HTTP 404 Error code, if host/port not found.
+    """
     host = config.HOSTS.get((hostname, port))
     if not host:
         raise HTTPException(
@@ -41,6 +48,7 @@ def get_host(hostname: str, port: int) -> dict:
 
 @app.get("/", response_model=Info, tags=["server_info"])
 def info():
+    """Info View. Returns server's version. Can be used as simple healthcheck"""
     return Info(name=config.OPENAPI["title"], server_version=config.VERSION)
 
 
@@ -56,6 +64,7 @@ def server_status(
     hostname: str = HostPath(title="MySQL Server host name"),
     port: int = PortPath(title="MySQL Server port number"),
 ):
+    """Server Status View. Returns MySQL Global Server Status variables for a given MySQL Server"""
     host = get_host(hostname, port)
     user = host["user"]
     result = get_global_status(hostname, port, user)
@@ -79,6 +88,7 @@ def table_status(
     database: str = DBNamePath(title="Database name"),
     table: Optional[str] = PatternQuery(title="Table name (MySQL pattern)"),
 ):
+    """Table Status View. Returns MySQL Table Status variables for a given MySQL Database"""
     host = get_host(hostname, port)
     user = host["user"]
     try:

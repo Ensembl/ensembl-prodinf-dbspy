@@ -1,3 +1,7 @@
+"""
+Configuration module. Meant to be read-only.
+"""
+
 import csv
 import os
 

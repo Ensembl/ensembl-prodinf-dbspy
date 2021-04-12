@@ -1,3 +1,7 @@
+"""
+Custom loggers module.
+"""
+
 import logging
 
 from ensembl.production.dbspy import config

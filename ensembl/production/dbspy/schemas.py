@@ -1,3 +1,7 @@
+"""
+Module containing in/out schemas to be used in the main module.
+"""
+
 from datetime import datetime
 from typing import List, Optional, Union
 

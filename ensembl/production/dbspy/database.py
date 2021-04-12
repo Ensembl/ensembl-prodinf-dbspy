@@ -1,3 +1,7 @@
+"""
+Module handling database connections and querying.
+"""
+
 from functools import lru_cache
 from typing import List, Set, Tuple
 

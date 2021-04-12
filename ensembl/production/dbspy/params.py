@@ -1,3 +1,7 @@
+"""
+Module containing specialised parameters to be used in the main module.
+"""
+
 from typing import Any
 
 from fastapi import Path, Query
