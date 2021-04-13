@@ -6,7 +6,8 @@ import csv
 import os
 
 
-VERSION = "1.0.0"
+with open('VERSION', 'r') as f:
+    VERSION = f.read()
 
 
 LOG_LEVEL = os.getenv("LOG_LEVEL", "info").lower()
