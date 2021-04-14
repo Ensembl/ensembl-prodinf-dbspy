@@ -17,7 +17,7 @@ setup(
     long_description=readme,
     author="Luca Da Rin Fioretto",
     author_email="ldrf@ebi.ac.uk",
-    maintainer="Ensembl-Production",
+    maintainer="Ensembl Production Team",
     maintainer_email="ensembl-production@ebi.ac.uk",
     packages=find_namespace_packages(include=['ensembl.*']),
     license='Apache 2.0',
