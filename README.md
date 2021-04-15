@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/Ensembl/ensembl-prodinf-dbspy.svg?token=uixv5pZneCqzQNs8zEJr&branch=main)](https://travis-ci.com/Ensembl/ensembl-prodinf-dbspy)
-
 EnsEMBL - Production DBSpy Web Application
 ==========================================
+
+[![Build Status](https://travis-ci.com/Ensembl/ensembl-prodinf-dbspy.svg?token=uixv5pZneCqzQNs8zEJr&branch=main)](https://travis-ci.com/Ensembl/ensembl-prodinf-dbspy) [![License](https://img.shields.io/badge/license-Apache--2.0-blue)](https://github.com/Ensembl/ensembl-prodinf-dbspy/blob/main/LICENSE)
 
 [FastAPI](https://fastapi.tiangolo.com/) Web application for monitoring MySQL database statistics.
 
