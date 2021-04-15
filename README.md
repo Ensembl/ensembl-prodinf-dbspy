@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/Ensembl/ensembl-prodinf-dbspy.svg?token=uixv5pZneCqzQNs8zEJr&branch=main)](https://travis-ci.com/Ensembl/ensembl-prodinf-dbspy)
+
 EnsEMBL - Production DBSpy Web Application
 ==========================================
 
