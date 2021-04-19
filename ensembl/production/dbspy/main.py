@@ -108,6 +108,4 @@ async def database_exception_handler(request: Request, exc: DatabaseError):
     msg = f"Error: Cannot execute query to database."
     log = f"{request.method}: {request.url}"
     logger.critical("%s: %s", log, exc)
-    return JSONResponse(status_code=502,
-                        content={"detail": [Message(msg=msg).dict()]})
-
+    return JSONResponse(status_code=502, content={"detail": [Message(msg=msg).dict()]})
