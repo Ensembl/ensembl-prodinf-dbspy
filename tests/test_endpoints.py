@@ -112,3 +112,8 @@ def test_table_status_unprocessable(db_conn):
     assert response.status_code == 422
     response = client.get(f"/status/table/{MYSQL_HOST}/{MYSQL_PORT}/{DB_NAME}?table=invalid-table")
     assert response.status_code == 422
+
+
+def test_database_connection_error():
+    response = client.get(f"/status/global/localhost/{MYSQL_PORT}")
+    assert response.status_code == 502

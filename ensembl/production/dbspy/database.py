@@ -30,6 +30,10 @@ EXCLUDED_SCHEMAS = set(
 )
 
 
+class DatabaseError(RuntimeError):
+    pass
+
+
 @lru_cache(maxsize=None)
 def get_engine(
     hostname: str, port: int, user: str, password: str = ""
@@ -45,7 +49,8 @@ def execute_sql(sql: str, hostname: str, port: int, user: str) -> List[Tuple[str
             result = conn.execute(sa.text(sql))
             return result.all()
     except sa.exc.OperationalError as err:
-        raise RuntimeError(f"Cannot execute query: {err}") from err
+        msg = f"Cannot execute '{sql}' on {user}@{hostname}:{port} - {err}"
+        raise DatabaseError(msg) from err
 
 
 def get_global_status(hostname: str, port: int, user: str) -> List[Tuple[str, str]]:

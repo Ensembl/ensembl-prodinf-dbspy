@@ -6,7 +6,7 @@ import csv
 import os
 
 
-with open('VERSION', 'r') as f:
+with open("VERSION", "r") as f:
     VERSION = f.read()
 
 
