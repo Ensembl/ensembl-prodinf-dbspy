@@ -6,6 +6,7 @@ from typing import Optional
 
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.openapi.utils import get_openapi
+from fastapi.responses import JSONResponse
 
 from ensembl.production.dbspy import config
 from ensembl.production.dbspy.loggers import logger
@@ -14,6 +15,7 @@ from ensembl.production.dbspy.schemas import HTTPError, Message
 from ensembl.production.dbspy.params import HostPath, PortPath, DBNamePath
 from ensembl.production.dbspy.params import PatternQuery
 from ensembl.production.dbspy.database import get_global_status, get_table_status
+from ensembl.production.dbspy.database import DatabaseError
 from ensembl.production.dbspy.utils import url_for
 
 
@@ -99,3 +101,13 @@ def table_status(
     query_params = dict(table=table)
     self_url = url_for(request, "table_status", path_params, query_params)
     return TablesStatus(_self=self_url, results=results)
+
+
+@app.exception_handler(DatabaseError)
+async def database_exception_handler(request: Request, exc: DatabaseError):
+    msg = f"Error: Cannot execute query to database."
+    log = f"{request.method}: {request.url}"
+    logger.critical("%s: %s", log, exc)
+    return JSONResponse(status_code=502,
+                        content={"detail": [Message(msg=msg).dict()]})
+
