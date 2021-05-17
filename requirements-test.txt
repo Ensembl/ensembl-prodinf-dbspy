@@ -4,7 +4,7 @@
 #
 #    pip-compile --output-file=requirements-test.txt requirements-test.in requirements.in
 #
-attrs==20.3.0
+attrs==21.2.0
     # via pytest
 certifi==2020.12.5
     # via requests
@@ -14,15 +14,15 @@ click==7.1.2
     # via uvicorn
 coverage==5.5
     # via -r requirements-test.in
-fastapi==0.63.0
+fastapi==0.65.1
     # via -r requirements.in
-greenlet==1.0.0
+greenlet==1.1.0
     # via sqlalchemy
 gunicorn==20.1.0
     # via -r requirements.in
 h11==0.12.0
     # via uvicorn
-httptools==0.1.1
+httptools==0.1.2
     # via uvicorn
 idna==2.10
     # via requests
@@ -36,25 +36,25 @@ pluggy==0.13.1
     # via pytest
 py==1.10.0
     # via pytest
-pydantic==1.8.1
+pydantic==1.8.2
     # via fastapi
 pyparsing==2.4.7
     # via packaging
-pytest==6.2.2
+pytest==6.2.4
     # via -r requirements-test.in
-python-dotenv==0.16.0
+python-dotenv==0.17.1
     # via uvicorn
 pyyaml==5.4.1
     # via uvicorn
 requests==2.25.1
     # via -r requirements-test.in
-sqlalchemy==1.4.3
+sqlalchemy==1.4.15
     # via -r requirements.in
-starlette==0.13.6
+starlette==0.14.2
     # via fastapi
 toml==0.10.2
     # via pytest
-typing-extensions==3.7.4.3
+typing-extensions==3.10.0.0
     # via pydantic
 urllib3==1.26.4
     # via requests
