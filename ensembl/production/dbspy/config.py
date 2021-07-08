@@ -15,7 +15,7 @@ LOG_LEVEL = os.getenv("LOG_LEVEL", "info").lower()
 
 OPENAPI = {
     "title": "DBSpy",
-    "version": "1.0.0",
+    "version": "1.0",
     "description": "DBSpy Schema",
     "openapi_tags": [
         {"name": "server_info", "description": "Server information"},
