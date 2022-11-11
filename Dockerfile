@@ -15,4 +15,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 RUN apk --purge del .build-deps
 
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "-c", "gunicorn_config.py", "--worker-tmp-dir", "/dev/shm", "ensembl.production.dbspy.main:app"]
+EXPOSE 5000
+
+CMD ["gunicorn", "-b", "0.0.0.0:5000", "-k", "uvicorn.workers.UvicornWorker", "-c", "gunicorn_config.py", "--worker-tmp-dir", "/dev/shm", "ensembl.production.dbspy.main:app"]
