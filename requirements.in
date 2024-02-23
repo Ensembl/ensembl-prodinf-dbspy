@@ -3,4 +3,4 @@ uvicorn[standard]
 gunicorn
 sqlalchemy
 mysqlclient
-pyyaml==5.3.1
+pyyaml
